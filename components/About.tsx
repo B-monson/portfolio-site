@@ -13,7 +13,7 @@ const skills = [
   'Merchant Tooling',
 ]
 
-export function About() {
+export function About() { 
   return (
     <section
       id="about"
