@@ -61,65 +61,72 @@ export function Projects() {
               </a>
             </div>
 
-            {/* Card body */}
-            <div className="p-8 grid md:grid-cols-2 gap-10">
-              {/* Terminal mockup */}
-              <div className="bg-zinc-950 border border-zinc-800 rounded-sm p-5 font-mono text-xs">
-                <div className="flex gap-1.5 mb-5">
-                  <span className="w-2.5 h-2.5 rounded-full bg-zinc-700" />
-                  <span className="w-2.5 h-2.5 rounded-full bg-zinc-700" />
-                  <span className="w-2.5 h-2.5 rounded-full bg-zinc-700" />
-                  <span className="ml-2 text-zinc-600 text-[10px] uppercase tracking-widest">
-                    cartclinic audit
-                  </span>
-                </div>
-                <div className="text-zinc-600 mb-4 text-[11px]">
-                  $ Auditing mystore.myshopify.com...
-                </div>
-                <div className="space-y-2.5">
-                  <div className="flex items-start gap-2 text-green-400 text-[11px]">
-                    <span className="flex-shrink-0">✓</span>
-                    <span>SEO: 8/10 checks passed</span>
-                  </div>
-                  <div className="flex items-start gap-2 text-yellow-400 text-[11px]">
-                    <span className="flex-shrink-0">△</span>
-                    <div>
-                      <div>Performance: 2 issues found</div>
-                      <div className="text-zinc-600 mt-0.5 pl-0">
-                        → render-blocking scripts detected
-                      </div>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-2 text-green-400 text-[11px]">
-                    <span className="flex-shrink-0">✓</span>
-                    <span>Theme: All hooks valid</span>
-                  </div>
-                  <div className="border-t border-zinc-800 pt-2 mt-2 text-zinc-500 text-[10px]">
-                    Completed in 1.2s — no install required
-                  </div>
-                </div>
+            {/* Screenshot showcase */}
+            <div className="bg-zinc-950 border-b border-zinc-800">
+              {/* Fake browser chrome bar */}
+              <div className="flex items-center gap-2 px-4 py-2.5 bg-zinc-900 border-b border-zinc-800">
+                <span className="w-2.5 h-2.5 rounded-full bg-zinc-700" />
+                <span className="w-2.5 h-2.5 rounded-full bg-zinc-700" />
+                <span className="w-2.5 h-2.5 rounded-full bg-zinc-700" />
+                <span className="ml-3 text-zinc-600 text-[11px] font-mono tracking-wider">
+                  cartclinicapp.com/audit
+                </span>
               </div>
 
-              {/* Feature list */}
-              <div className="flex flex-col justify-center">
-                <ul className="space-y-6">
-                  {features.map((feature) => (
-                    <li key={feature.label} className="flex gap-3">
-                      <span className="text-accent text-xs mt-0.5 flex-shrink-0">
-                        ▲
-                      </span>
-                      <div>
-                        <div className="text-white text-sm font-bold uppercase tracking-wide">
-                          {feature.label}
-                        </div>
-                        <div className="text-zinc-500 text-xs mt-0.5">
-                          {feature.desc}
-                        </div>
-                      </div>
-                    </li>
-                  ))}
-                </ul>
+              {/* Screenshot viewport */}
+              <div className="relative overflow-hidden" style={{ height: '440px' }}>
+                {/* Desktop screenshot: background-image lets us precisely pan/crop.
+                    background-size 'auto 130%' = height 130% of container (571px),
+                    proportional width = 571 × (2030/1431) = 810px.
+                    background-position shifts down 6% to skip macOS browser chrome. */}
+                <div
+                  aria-label="CartClinic audit results — desktop view"
+                  className="absolute inset-0"
+                  style={{
+                    backgroundImage: 'url("/images/cartclinic-desktop.png")',
+                    backgroundSize: 'auto 130%',
+                    backgroundRepeat: 'no-repeat',
+                    backgroundPosition: 'center 6%',
+                  }}
+                />
+
+                {/* Bottom fade */}
+                <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-zinc-950 to-transparent" />
+
+                {/* Mobile inset — zooms into the health-score section of the desktop
+                    screenshot for a clean "phone view" without DevTools chrome.
+                    background-size 'auto 350%' zooms in ~2.7×; position targets
+                    the score card area (upper-center of the page content). */}
+                <div
+                  aria-label="CartClinic audit results — mobile view"
+                  className="absolute bottom-6 right-6 md:right-10 border border-zinc-700 shadow-2xl rounded-sm"
+                  style={{
+                    width: '110px',
+                    aspectRatio: '390 / 844',
+                    backgroundImage: 'url("/images/cartclinic-desktop.png")',
+                    backgroundSize: 'auto 350%',
+                    backgroundRepeat: 'no-repeat',
+                    backgroundPosition: '28% 28%',
+                  }}
+                />
               </div>
+            </div>
+
+            {/* Feature list */}
+            <div className="p-8">
+              <ul className="grid md:grid-cols-3 gap-6">
+                {features.map((feature) => (
+                  <li key={feature.label} className="flex gap-3">
+                    <span className="text-accent text-xs mt-0.5 flex-shrink-0">▲</span>
+                    <div>
+                      <div className="text-white text-sm font-bold uppercase tracking-wide">
+                        {feature.label}
+                      </div>
+                      <div className="text-zinc-500 text-xs mt-0.5">{feature.desc}</div>
+                    </div>
+                  </li>
+                ))}
+              </ul>
             </div>
 
             {/* Tags */}
