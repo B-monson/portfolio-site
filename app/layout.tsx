@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     title: 'Brett Monson — Product-Minded Engineer & UX Specialist',
     description:
       'Building eCommerce tools that bridge design thinking with technical execution.',
-    url: 'https://brettmonson.com',
+    url: 'https://brettmonson.dev',
     siteName: 'Brett Monson',
     locale: 'en_US',
     type: 'website',
