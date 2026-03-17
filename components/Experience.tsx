@@ -2,7 +2,7 @@ const experience = [
   {
     role: 'Founder & Developer',
     company: 'CartClinic',
-    period: '2024 — Present',
+    period: '2026 — Present',
     current: true,
     description:
       'Building a free Shopify store diagnostic tool from the ground up. Responsible for product design, full-stack development with Next.js, and go-to-market strategy. Handling all aspects from UX research to deployment.',
@@ -11,7 +11,7 @@ const experience = [
   {
     role: 'Level 2 Implementation Specialist',
     company: 'Order Protection',
-    period: '2022 — 2024',
+    period: '2023 — 2026',
     current: false,
     description:
       'Led complex eCommerce integrations for enterprise and mid-market brands. Owned advanced Shopify and BigCommerce implementations, customizing JavaScript solutions across diverse storefront architectures and resolving high-impact technical escalations. Collaborated closely with Product, Engineering, and Customer Success to refine onboarding workflows and improve time-to-value for merchants.',
